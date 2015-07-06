@@ -1,4 +1,3 @@
 # datasciencecoursera
 
-
-public repo for data science courses
+public repo for data science courses.
