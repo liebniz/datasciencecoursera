@@ -18,13 +18,21 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
   
   
   id <- 1:2
-  
+  # 2 nice solutions below - i like sprintf for nostalgic reasons
+  fileSuffix <- sprintf("%03d.csv", id)
+  # files <- paste(formatC(a, width=3, flag="0"), ".csv", sep="")
   ## create and view an object with file names and full paths
-  files <- paste(id, ".dat", collapse = ',', sep = '')
+
+  fileName <- file.path(dir, fileSuffix)
   
-  #f <- file.path(dir, files)
-  
-  f <- file.path("http://www.ats.ucla.edu/stat/data", c("auto.dta",
-                                                            "cancer.dta", 
-                                                        "efa_cf#a.dta", "hsbmar.dta"))
+  # now open the files and process them
+
+  reslist <- lapply(fileName, function(name) { 
+    
+    print(name)
+    csv <- read.csv(name, header = TRUE)
+    print(csv) 
+    }
+    
+    )
 }
