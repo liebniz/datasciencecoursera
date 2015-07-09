@@ -27,11 +27,11 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
 
     fileNames <- file.path(directory, fileSuffix)
     
-   ## now open the files and process them
+    ## now open the files and process them
 
     ## also csv$sulfate works but is not dynamic
-   ## pollutant<-"sulfate"
-   ## mn<-mean(csv[[pollutant]],na.rm=TRUE)
+    ## pollutant<-"sulfate"
+    ## mn<-mean(csv[[pollutant]],na.rm=TRUE)
 
 
 
@@ -61,4 +61,4 @@ poll <- "sulfate"
 mn <- pollutantmean(dir,poll,id)
 
 print (mn)
-    
+
