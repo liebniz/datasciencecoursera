@@ -13,12 +13,14 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
     ## in the 'id' vector (ignoring NA values)
     ## NOTE: Do not round the result!
 
+
+    check <- c("sulfate","nitrate")
+    if ( ! pollutant %in% check ) stop(sprintf("invalid pollutant %s", pollutant))
+
     uids <- unique(id)
 
-    if ( max(uids) >= 333 ) {
-        print(sprintf("index too large: %d", max(ids)))
-        return (-1)
-    }
+    if ( max(uids) >= 333 || min(uids) < 1 )
+        stop(sprintf("input out of range: %d to %d", min(uids), max(uids)))
 
     ## format input
     ## 2 nice solutions below - i like sprintf for nostalgic reasons
@@ -41,24 +43,20 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
     fileNames
     
     for (fname in fileNames) {
-        
         csv <- read.csv(fname, header = TRUE)
         dataPoints <- c(dataPoints,csv$sulfate)
-
     }
 
     mn<-mean(dataPoints,na.rm=TRUE)   
 
-    print(mn)
-
     return (mn)
 }
 
-dir <- "/root/Documents/datasciencecoursera/programming-R/specdata"
-id <- 5:67
-poll <- "sulfate"
+## dir <- "/root/Documents/datasciencecoursera/programming-R/specdata"
+## id <- 5:67
+## poll <- "sulfate"
 
-mn <- pollutantmean(dir,poll,id)
+## mn <- pollutantmean(dir,poll,id)
 
-print (mn)
+## print (mn)
 
