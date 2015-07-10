@@ -44,7 +44,7 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
     
     for (fname in fileNames) {
         csv <- read.csv(fname, header = TRUE)
-        dataPoints <- c(dataPoints,csv$sulfate)
+        dataPoints <- c(dataPoints,csv[[pollutant]])
     }
 
     mn<-mean(dataPoints,na.rm=TRUE)   
