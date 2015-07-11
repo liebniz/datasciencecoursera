@@ -105,3 +105,23 @@ complete <- function(directory, id = 1:332) {
   return (dataFrame)  
 }
 
+corr <- function(directory, threshold = 0) {
+  ## 'directory' is a character vector of length 1 indicating
+  ## the location of the CSV files
+  
+  ## 'threshold' is a numeric vector of length 1 indicating the
+  ## number of completely observed observations (on all
+  ## variables) required to compute the correlation between
+  ## nitrate and sulfate; the default is 0
+  
+  ## Return a numeric vector of correlations
+  ## NOTE: Do not round the result!
+  
+  ## 1) get the whole directory by "*.csv"
+  ## 2) filter out by threshold
+  ## 3) build vector for each pollutant with code like below
+  
+  nitrate<-vector() ## for each file, append to x as follows
+  nitrate<-c(nitrate,csv[complete.cases(csv),]$nitrate)
+}
+
