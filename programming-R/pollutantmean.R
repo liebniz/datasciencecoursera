@@ -123,5 +123,17 @@ corr <- function(directory, threshold = 0) {
   
   nitrate<-vector() ## for each file, append to x as follows
   nitrate<-c(nitrate,csv[complete.cases(csv),]$nitrate)
+  
+
+  fileNames<-list.files(path=directory, pattern="\\.*csv", full.names=TRUE)
+
+  
+  ## initialize preallocated data frame - nope inefficient according to 
+  ## stack overflow. Use matrix and cast to dataframe after the fact
+  
+  temp <- matrix(ncol=2, nrow=length(uids))
+
+  ## process files
+  counter <- 0
 }
 
