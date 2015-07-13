@@ -121,19 +121,20 @@ corr <- function(directory, threshold = 0) {
   ## 2) filter out by threshold
   ## 3) build vector for each pollutant with code like below
   
-  nitrate<-vector() ## for each file, append to x as follows
-  nitrate<-c(nitrate,csv[complete.cases(csv),]$nitrate)
-  
+  nitrate<-vector() 
+  sulfate<-vector()
 
   fileNames<-list.files(path=directory, pattern="\\.*csv", full.names=TRUE)
-
-  
-  ## initialize preallocated data frame - nope inefficient according to 
-  ## stack overflow. Use matrix and cast to dataframe after the fact
-  
-  temp <- matrix(ncol=2, nrow=length(uids))
-
-  ## process files
-  counter <- 0
+  for (fname in fileNames) {
+    csv <- read.csv(fname, header = TRUE)
+    temp[counter, 1] <- csv$ID[1]
+    if ( length(complete.cases(csv)== TRUE) > threshold ) {
+      nitrate<-c(nitrate,csv[complete.cases(csv),]$nitrate)
+      sulfate<-c(sulfate,csv[complete.cases(csv),]$sulfate)
+    }
+		
+  }
+	
+	return (cor(sulfate,nitrate))
 }
 
