@@ -1,19 +1,138 @@
-The purpose of this project is to demonstrate your ability to collect, work with, and clean a data set. The goal is to prepare tidy data that can be used for later analysis. You will be graded by your peers on a series of yes/no questions related to the project. You will be required to submit: 1) a tidy data set as described below, 2) a link to a Github repository with your script for performing the analysis, and 3) a code book that describes the variables, the data, and any transformations or work that you performed to clean up the data called CodeBook.md. You should also include a README.md in the repo with your scripts. This repo explains how all of the scripts work and how they are connected. 
+# Data Cleaning Project
 
-One of the most exciting areas in all of data science right now is wearable computing - see for example this article . Companies like Fitbit, Nike, and Jawbone Up are racing to develop the most advanced algorithms to attract new users. The data linked to from the course website represent data collected from the accelerometers from the Samsung Galaxy S smartphone. A full description is available at the site where the data was obtained:
+The run_analysis.R script in this directory performs the following tasks
 
-http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+## Tasks common to both training and test data sets
 
-Here are the data for the project:
+1) read in the names of all the variables from "UCI HAR Dataset/features.txt".
+2) read in names of activities as a 'factor' from "UCI HAR Dataset/activity_labels.txt".
+3) identify variables by name that we are concerned with (those containing "std()"" or "mean()"). 
 
-https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+## Tasks for both TEST and TRAIN data sets
 
- You should create one R script called run_analysis.R that does the following. 
+1) read in the measurements from the "X" file.
+2) read in associated activities from the "y" file.
+3) read in associated subjects from "subjects" file.
+4) transform activities by activity factor
+5) add 'friendly' column names
+6) mutate dataset to add in activity and subject columns
 
-   1) Merges the training and the test sets to create one data set.
-   2) Extracts only the measurements on the mean and standard deviation for each measurement. 
-   3) Uses descriptive activity names to name the activities in the data set
-   4) Appropriately labels the data set with descriptive variable names. 
-   5) From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+## Tasks to create summary data set
 
-Good luck!
+1) combine the TRAIN and TEST datasets into one
+2) aggregate combined data by subject and activity, applying the mean() function to other columns
+3) apply new column names indicating that values are means.
+4) write out data as text file, skipping the row names
+
+
+## Code Book
+
+The following describes the variables in tidy-summary.txt.
+
+* subject - integer identifying the person whose actions were measured in the HAR data collection study.
+* activity - the measured activity. One of Standing, Sitting, Laying, Walking, Walking down stairs, Walking up stairs.
+
+* remaining variables are the *mean value* of each indicated variable list below. They are 'rollup' values and are listed below individually for completeness.
+
+1) Body Accelleration in X,Y,Z directions mean and standard deviation
+
+* tBodyAcc-mean()-X
+* tBodyAcc-mean()-Y
+* tBodyAcc-mean()-Z
+* tBodyAcc-std()-X
+* tBodyAcc-std()-Y
+* tBodyAcc-std()-Z
+
+2) Gravitation Acceleration XYZ mean and standard deviation
+
+* tGravityAcc-mean()-X
+* tGravityAcc-mean()-Y
+* tGravityAcc-mean()-Z
+* tGravityAcc-std()-X
+* tGravityAcc-std()-Y
+* tGravityAcc-std()-Z
+
+3) Body Acceleration Jerk XYZ 
+
+* tBodyAccJerk-mean()-X
+* tBodyAccJerk-mean()-Y
+* tBodyAccJerk-mean()-Z
+* tBodyAccJerk-std()-X
+* tBodyAccJerk-std()-Y
+* tBodyAccJerk-std()-Z
+
+4) Body Gyroscopic motion XYZ
+
+* tBodyGyro-mean()-X
+* tBodyGyro-mean()-Y
+* tBodyGyro-mean()-Z
+* tBodyGyro-std()-X
+* tBodyGyro-std()-Y
+* tBodyGyro-std()-Z
+
+5) Body Gyroscopic Jerk XYZ
+
+* tBodyGyroJerk-mean()-X
+* tBodyGyroJerk-mean()-Y
+* tBodyGyroJerk-mean()-Z
+* tBodyGyroJerk-std()-X
+* tBodyGyroJerk-std()-Y
+* tBodyGyroJerk-std()-Z
+
+6) Body Acceleration Magnitude
+
+* tBodyAccMag-mean()
+* tBodyAccMag-std()
+
+7) Gravitational Acceleration Magnitude
+
+* tGravityAccMag-mean()
+* tGravityAccMag-std()
+
+8) Body Acceleration Jerk Magnitude
+
+* tBodyAccJerkMag-mean()
+* tBodyAccJerkMag-std()
+
+9) Body Gyroscopice Magnitude
+
+* tBodyGyroMag-mean()
+* tBodyGyroMag-std()
+
+10)  Body Gyroscopice Jerk Magnitude
+* tBodyGyroJerkMag-mean()
+* tBodyGyroJerkMag-std()
+
+11) other values are for full body. Same as indicated above
+
+* fBodyAcc-mean()-X
+* fBodyAcc-mean()-Y
+* fBodyAcc-mean()-Z
+* fBodyAcc-std()-X
+* fBodyAcc-std()-Y
+* fBodyAcc-std()-Z
+
+* fBodyAccJerk-mean()-X
+* fBodyAccJerk-mean()-Y
+* fBodyAccJerk-mean()-Z
+* fBodyAccJerk-std()-X
+* fBodyAccJerk-std()-Y
+* fBodyAccJerk-std()-Z
+
+* fBodyGyro-mean()-X
+* fBodyGyro-mean()-Y
+* fBodyGyro-mean()-Z
+* fBodyGyro-std()-X
+* fBodyGyro-std()-Y
+* fBodyGyro-std()-Z
+
+* fBodyAccMag-mean()
+* fBodyAccMag-std()
+
+* fBodyBodyAccJerkMag-mean()
+* fBodyBodyAccJerkMag-std()
+
+* fBodyBodyGyroMag-mean()
+* fBodyBodyGyroMag-std()
+* fBodyBodyGyroJerkMag-mean()
+* fBodyBodyGyroJerkMag-std()
