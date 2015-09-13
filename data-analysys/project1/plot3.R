@@ -1,6 +1,6 @@
 source("project1/read_data.R")
 
-#create sample.csv - proper subset of all the data
+#create sample.csv - proper subset of data for 2/1 and 2/2
 read_data()
 
 
