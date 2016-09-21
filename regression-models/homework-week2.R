@@ -75,30 +75,43 @@ predict(fit3,newdata=data.frame(hp=c(111)))
 
 #1
 
-f <- lm( sheight  ~  . , data=father.son)
-fitmt <- lm( mpg  ~  . , data=mtcars)
+x <- father.son$fheight
+y <- father.son$sheight
+f <- lm( y  ~  x)
 summary(f)
-pf <- qplot(data=father.son,x=fheight,y=sheight)
-pf <- pf + geom_point(alpha=.2, size=5,color="blue")
-pf <- pf + geom_smooth(method="lm")
+e <- resid(f)
+#1.a
+plot (x,e) # this is correct
+
+pf <- qplot(y=r,x=predict(f))
+pf <- pf + geom_point(alpha=.2, size=2,color="blue")
+#pf <- pf + geom_smooth(method="lm")
 pf
+plot ()
+plot(f)
 
 #2. Refer to question 1. Directly estimate the residual variance and compare this estimate to the
 #output of lm
 
-n = length(father.son$fheight)
-sqrt(sum(resid(f)^2) / (n - 2))
+n = length(x)
+sum(e^2) / (n - 2)
 
-# 2.437
+# 5.93
+
+summary(f)
+
+
+2.437^2
 
 # 3. Refer to question 1. Give the R squared for this model
 
 yhat = predict(f)
-y = father.son$sheight
 ymean = mean (y)
 
-rs = sum((yhat - ymean) ^2) / sum((y - yhat)^2)
+rs = sum((yhat - ymean) ^2) / sum((y - ymean)^2)
 rs
 
-# 0.33572
+# 0.2513
 
+
+# 4-6 are same but with mtcars dataset
