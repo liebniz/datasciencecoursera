@@ -35,6 +35,35 @@ Criteria
 2) Did the report include an executive summary?
 2) Was the report done in Rmd (knitr)?
 
+# Executive Summary
+
+Blah blah bla
+
+
+
+# Coefficients Interpretation
+
+# Exploratory Data Analysis
+
+```{r mtcars}
+library(dplyr)
+
+data(mtcars)
+
+cars <- mutate(mtcars, cyl = factor(cyl), am = factor(am, levels(c(0,1) ,labels = c("auto", "manual")), gear = factor(gear), carb = factor(carb))
+
+
+factor(mtcars$cyl)
+
+data <- 
+
+fit <- lm( mpg ~ ., mtcars)
+
+
+
+
+```
+
 
 
 
@@ -45,9 +74,6 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-```{r cars}
-summary(cars)
-```
 
 ## Including Plots
 
@@ -58,3 +84,644 @@ plot(pressure)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+
+
+
+R version 3.3.1 (2016-06-21) -- "Bug in Your Hair"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Workspace loaded from ~/GitHub/datasciencecoursera/regression-models/.RData]
+
+
+Restarting R session...
+
+> install.packages(c("codetools", "curl", "R6", "stringi"))
+Error in install.packages : Updating loaded packages
+
+Restarting R session...
+
+> install.packages(c("codetools", "curl", "R6", "stringi"))
+Error in install.packages : Updating loaded packages
+> install.packages(c("codetools", "curl", "R6", "stringi"))
+
+  There are binary versions available but the source versions are later:
+          binary source needs_compilation
+codetools 0.2-14 0.2-15             FALSE
+R6         2.1.3  2.2.0             FALSE
+
+trying URL 'https://cran.rstudio.com/bin/windows/contrib/3.3/curl_2.1.zip'
+Content type 'application/zip' length 4670306 bytes (4.5 MB)
+downloaded 4.5 MB
+
+trying URL 'https://cran.rstudio.com/bin/windows/contrib/3.3/stringi_1.1.2.zip'
+Content type 'application/zip' length 14264581 bytes (13.6 MB)
+downloaded 13.6 MB
+
+package ‘curl’ successfully unpacked and MD5 sums checked
+package ‘stringi’ successfully unpacked and MD5 sums checked
+Warning in install.packages :
+  cannot remove prior installation of package ‘stringi’
+
+The downloaded binary packages are in
+	C:\Users\zendle.joe\AppData\Local\Temp\Rtmp8OjA2w\downloaded_packages
+installing the source packages ‘codetools’, ‘R6’
+
+trying URL 'https://cran.rstudio.com/src/contrib/codetools_0.2-15.tar.gz'
+Content type 'application/x-gzip' length 12930 bytes (12 KB)
+downloaded 12 KB
+
+trying URL 'https://cran.rstudio.com/src/contrib/R6_2.2.0.tar.gz'
+Content type 'application/x-gzip' length 203498 bytes (198 KB)
+downloaded 198 KB
+
+* installing *source* package 'codetools' ...
+** package 'codetools' successfully unpacked and MD5 sums checked
+** R
+** preparing package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded
+*** arch - i386
+*** arch - x64
+* DONE (codetools)
+* installing *source* package 'R6' ...
+** package 'R6' successfully unpacked and MD5 sums checked
+** R
+** inst
+** preparing package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded
+*** arch - i386
+*** arch - x64
+* DONE (R6)
+
+The downloaded source packages are in
+	‘C:\Users\zendle.joe\AppData\Local\Temp\Rtmp8OjA2w\downloaded_packages’
+
+Restarting R session...
+
+> data(mtcars)
+> fit <- lm( mpg ~ ., mtcars)
+
+Restarting R session...
+
+> rm(ls())
+Error in rm(ls()) : ... must contain names or character strings
+> ls()
+ [1] "all"             "automatic"       "e"               "ec"              "efit"            "eliminate"      
+ [7] "est"             "f"               "f2"              "fcentered"       "fit"             "fit_centered"   
+[13] "fit2"            "fit3"            "fit4"            "fitmt"           "fmpg"            "fname"          
+[19] "fname2"          "freqData"        "galton"          "gch"             "gch_nor"         "gpa"            
+[25] "gpa_nor"         "InsectSprays"    "l_nor"           "m"               "makelms"         "maniflg"        
+[31] "manual"          "mtcars"          "mu"              "myPlot"          "n"               "nd"             
+[37] "newx"            "nfit"            "ones"            "p"               "p2"              "p3"             
+[43] "pf"              "pr"              "regressOneOnOne" "rgp1"            "rgp2"            "rs"             
+[49] "s"               "s2"              "sA"              "sB"              "sC"              "sD"             
+[55] "sE"              "seatbelts"       "Seatbelts"       "sF"              "spray2"          "sRes"           
+[61] "sTot"            "sumCoef"         "swiss"           "trees"           "trees2"          "tt"             
+[67] "x"               "y"               "yhat"            "ymean"          
+> rm(list = ls())
+> data(mtcars)
+> library(dplyr)
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+> factor(mtcars$cyl)
+ [1] 6 6 4 6 8 6 8 4 4 6 6 8 8 8 8 8 8 4 4 4 4 8 8 8 8 4 4 4 8 6 8 4
+Levels: 4 6 8
+> cars <- mutate(mtcars, fcyl = factor(mtcars$cyl))
+> cars <- mutate(mtcars, fam = factor(mtcars$am))
+> cars <- mutate(mtcars, fcyl = factor(mtcars$cyl), fam = factor(mtcars$am))
+> cars <- mutate(mtcars, cyl = factor(mtcars$cyl), am = factor(mtcars$am))
+> cars <- mutate(mtcars, cyl = factor(mtcars$cyl), am = factor(mtcars$am), gear = factor(gears))
+Error in eval(substitute(expr), envir, enclos) : object 'gears' not found
+> cars <- mutate(mtcars, cyl = factor(mtcars$cyl), am = factor(mtcars$am), gear = factor(gear))
+> cars <- mutate(mtcars, cyl = factor(cyl), am = factor(am), gear = factor(gear), carb = factor(carb))
+> cars <- mutate(mtcars, cyl = factor(cyl), am = factor(am, labels = c("auto", "manual")), gear = factor(gear), carb = factor(carb))
+> cars <- mutate(mtcars, cyl = factor(cyl), am = factor(am, levels(c(0,1) ,labels = c("auto", "manual")), gear = factor(gear), carb = factor(carb))
++ View(cars)
+Error: unexpected symbol in:
+"cars <- mutate(mtcars, cyl = factor(cyl), am = factor(am, levels(c(0,1) ,labels = c("auto", "manual")), gear = factor(gear), carb = factor(carb))
+View"
+> View(cars)
+> View(mtcars)
+> View(mtcars)
+> cars$am == 1
+ [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[19] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+> cars$am == 0
+ [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[19] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+> cars$am == "manual"
+ [1]  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE
+[19]  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+> cars$am == level(0)
+Error: could not find function "level"
+> summary( lm (mpg ~ ., cars ))
+
+Call:
+lm(formula = mpg ~ ., data = cars)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.5087 -1.3584 -0.0948  0.7745  4.6251 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)  
+(Intercept) 23.87913   20.06582   1.190   0.2525  
+cyl6        -2.64870    3.04089  -0.871   0.3975  
+cyl8        -0.33616    7.15954  -0.047   0.9632  
+disp         0.03555    0.03190   1.114   0.2827  
+hp          -0.07051    0.03943  -1.788   0.0939 .
+drat         1.18283    2.48348   0.476   0.6407  
+wt          -4.52978    2.53875  -1.784   0.0946 .
+qsec         0.36784    0.93540   0.393   0.6997  
+vs           1.93085    2.87126   0.672   0.5115  
+ammanual     1.21212    3.21355   0.377   0.7113  
+gear4        1.11435    3.79952   0.293   0.7733  
+gear5        2.52840    3.73636   0.677   0.5089  
+carb2       -0.97935    2.31797  -0.423   0.6787  
+carb3        2.99964    4.29355   0.699   0.4955  
+carb4        1.09142    4.44962   0.245   0.8096  
+carb6        4.47757    6.38406   0.701   0.4938  
+carb8        7.25041    8.36057   0.867   0.3995  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 2.833 on 15 degrees of freedom
+Multiple R-squared:  0.8931,	Adjusted R-squared:  0.779 
+F-statistic:  7.83 on 16 and 15 DF,  p-value: 0.000124
+
+> summary( lm (mpg ~ am, cars ))
+
+Call:
+lm(formula = mpg ~ am, data = cars)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-9.3923 -3.0923 -0.2974  3.2439  9.5077 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   17.147      1.125  15.247 1.13e-15 ***
+ammanual       7.245      1.764   4.106 0.000285 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 4.902 on 30 degrees of freedom
+Multiple R-squared:  0.3598,	Adjusted R-squared:  0.3385 
+F-statistic: 16.86 on 1 and 30 DF,  p-value: 0.000285
+
+> plot ( x = cars$am, y = cars$mpg )
+> summary( lm (mpg ~ am, cars ))
+
+Call:
+lm(formula = mpg ~ am, data = cars)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-9.3923 -3.0923 -0.2974  3.2439  9.5077 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   17.147      1.125  15.247 1.13e-15 ***
+ammanual       7.245      1.764   4.106 0.000285 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 4.902 on 30 degrees of freedom
+Multiple R-squared:  0.3598,	Adjusted R-squared:  0.3385 
+F-statistic: 16.86 on 1 and 30 DF,  p-value: 0.000285
+
+> summary( lm (mpg ~ ., cars ))
+
+Call:
+lm(formula = mpg ~ ., data = cars)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.5087 -1.3584 -0.0948  0.7745  4.6251 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)  
+(Intercept) 23.87913   20.06582   1.190   0.2525  
+cyl6        -2.64870    3.04089  -0.871   0.3975  
+cyl8        -0.33616    7.15954  -0.047   0.9632  
+disp         0.03555    0.03190   1.114   0.2827  
+hp          -0.07051    0.03943  -1.788   0.0939 .
+drat         1.18283    2.48348   0.476   0.6407  
+wt          -4.52978    2.53875  -1.784   0.0946 .
+qsec         0.36784    0.93540   0.393   0.6997  
+vs           1.93085    2.87126   0.672   0.5115  
+ammanual     1.21212    3.21355   0.377   0.7113  
+gear4        1.11435    3.79952   0.293   0.7733  
+gear5        2.52840    3.73636   0.677   0.5089  
+carb2       -0.97935    2.31797  -0.423   0.6787  
+carb3        2.99964    4.29355   0.699   0.4955  
+carb4        1.09142    4.44962   0.245   0.8096  
+carb6        4.47757    6.38406   0.701   0.4938  
+carb8        7.25041    8.36057   0.867   0.3995  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 2.833 on 15 degrees of freedom
+Multiple R-squared:  0.8931,	Adjusted R-squared:  0.779 
+F-statistic:  7.83 on 16 and 15 DF,  p-value: 0.000124
+
+> summary( lm (mpg ~ ., mtcars ))
+
+Call:
+lm(formula = mpg ~ ., data = mtcars)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.4506 -1.6044 -0.1196  1.2193  4.6271 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)  
+(Intercept) 12.30337   18.71788   0.657   0.5181  
+cyl         -0.11144    1.04502  -0.107   0.9161  
+disp         0.01334    0.01786   0.747   0.4635  
+hp          -0.02148    0.02177  -0.987   0.3350  
+drat         0.78711    1.63537   0.481   0.6353  
+wt          -3.71530    1.89441  -1.961   0.0633 .
+qsec         0.82104    0.73084   1.123   0.2739  
+vs           0.31776    2.10451   0.151   0.8814  
+am           2.52023    2.05665   1.225   0.2340  
+gear         0.65541    1.49326   0.439   0.6652  
+carb        -0.19942    0.82875  -0.241   0.8122  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 2.65 on 21 degrees of freedom
+Multiple R-squared:  0.869,	Adjusted R-squared:  0.8066 
+F-statistic: 13.93 on 10 and 21 DF,  p-value: 3.793e-07
+
+> plot(mtcars)
+> round(cor(mtcars),3)
+        mpg    cyl   disp     hp   drat     wt   qsec     vs     am   gear   carb
+mpg   1.000 -0.852 -0.848 -0.776  0.681 -0.868  0.419  0.664  0.600  0.480 -0.551
+cyl  -0.852  1.000  0.902  0.832 -0.700  0.782 -0.591 -0.811 -0.523 -0.493  0.527
+disp -0.848  0.902  1.000  0.791 -0.710  0.888 -0.434 -0.710 -0.591 -0.556  0.395
+hp   -0.776  0.832  0.791  1.000 -0.449  0.659 -0.708 -0.723 -0.243 -0.126  0.750
+drat  0.681 -0.700 -0.710 -0.449  1.000 -0.712  0.091  0.440  0.713  0.700 -0.091
+wt   -0.868  0.782  0.888  0.659 -0.712  1.000 -0.175 -0.555 -0.692 -0.583  0.428
+qsec  0.419 -0.591 -0.434 -0.708  0.091 -0.175  1.000  0.745 -0.230 -0.213 -0.656
+vs    0.664 -0.811 -0.710 -0.723  0.440 -0.555  0.745  1.000  0.168  0.206 -0.570
+am    0.600 -0.523 -0.591 -0.243  0.713 -0.692 -0.230  0.168  1.000  0.794  0.058
+gear  0.480 -0.493 -0.556 -0.126  0.700 -0.583 -0.213  0.206  0.794  1.000  0.274
+carb -0.551  0.527  0.395  0.750 -0.091  0.428 -0.656 -0.570  0.058  0.274  1.000
+> summary( lm (mpg ~ ., mtcars ))
+
+Call:
+lm(formula = mpg ~ ., data = mtcars)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.4506 -1.6044 -0.1196  1.2193  4.6271 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)  
+(Intercept) 12.30337   18.71788   0.657   0.5181  
+cyl         -0.11144    1.04502  -0.107   0.9161  
+disp         0.01334    0.01786   0.747   0.4635  
+hp          -0.02148    0.02177  -0.987   0.3350  
+drat         0.78711    1.63537   0.481   0.6353  
+wt          -3.71530    1.89441  -1.961   0.0633 .
+qsec         0.82104    0.73084   1.123   0.2739  
+vs           0.31776    2.10451   0.151   0.8814  
+am           2.52023    2.05665   1.225   0.2340  
+gear         0.65541    1.49326   0.439   0.6652  
+carb        -0.19942    0.82875  -0.241   0.8122  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 2.65 on 21 degrees of freedom
+Multiple R-squared:  0.869,	Adjusted R-squared:  0.8066 
+F-statistic: 13.93 on 10 and 21 DF,  p-value: 3.793e-07
+
+> fit <- lm ( mpg ~ . , mtcars)
+> summary(fit)
+
+Call:
+lm(formula = mpg ~ ., data = mtcars)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.4506 -1.6044 -0.1196  1.2193  4.6271 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)  
+(Intercept) 12.30337   18.71788   0.657   0.5181  
+cyl         -0.11144    1.04502  -0.107   0.9161  
+disp         0.01334    0.01786   0.747   0.4635  
+hp          -0.02148    0.02177  -0.987   0.3350  
+drat         0.78711    1.63537   0.481   0.6353  
+wt          -3.71530    1.89441  -1.961   0.0633 .
+qsec         0.82104    0.73084   1.123   0.2739  
+vs           0.31776    2.10451   0.151   0.8814  
+am           2.52023    2.05665   1.225   0.2340  
+gear         0.65541    1.49326   0.439   0.6652  
+carb        -0.19942    0.82875  -0.241   0.8122  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 2.65 on 21 degrees of freedom
+Multiple R-squared:  0.869,	Adjusted R-squared:  0.8066 
+F-statistic: 13.93 on 10 and 21 DF,  p-value: 3.793e-07
+
+> fit <- update ( fit,  ~ , -cyl)
+Error: unexpected ',' in "fit <- update ( fit,  ~ ,"
+> fit <- update ( fit, . ~ . -cyl)
+> summary(fit)
+
+Call:
+lm(formula = mpg ~ disp + hp + drat + wt + qsec + vs + am + gear + 
+    carb, data = mtcars)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.4286 -1.5908 -0.0412  1.2120  4.5961 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)  
+(Intercept) 10.96007   13.53030   0.810   0.4266  
+disp         0.01283    0.01682   0.763   0.4538  
+hp          -0.02191    0.02091  -1.048   0.3062  
+drat         0.83520    1.53625   0.544   0.5921  
+wt          -3.69251    1.83954  -2.007   0.0572 .
+qsec         0.84244    0.68678   1.227   0.2329  
+vs           0.38975    1.94800   0.200   0.8433  
+am           2.57743    1.94035   1.328   0.1977  
+gear         0.71155    1.36562   0.521   0.6075  
+carb        -0.21958    0.78856  -0.278   0.7833  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 2.59 on 22 degrees of freedom
+Multiple R-squared:  0.8689,	Adjusted R-squared:  0.8153 
+F-statistic: 16.21 on 9 and 22 DF,  p-value: 9.031e-08
+
+> fit <- update ( fit, . ~ . -vs)
+> summary(fit)
+
+Call:
+lm(formula = mpg ~ disp + hp + drat + wt + qsec + am + gear + 
+    carb, data = mtcars)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-3.356 -1.576 -0.149  1.218  4.604 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)  
+(Intercept)  9.76828   11.89230   0.821   0.4199  
+disp         0.01214    0.01612   0.753   0.4590  
+hp          -0.02095    0.01993  -1.051   0.3040  
+drat         0.87510    1.49113   0.587   0.5630  
+wt          -3.71151    1.79834  -2.064   0.0505 .
+qsec         0.91083    0.58312   1.562   0.1319  
+am           2.52390    1.88128   1.342   0.1928  
+gear         0.75984    1.31577   0.577   0.5692  
+carb        -0.24796    0.75933  -0.327   0.7470  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 2.535 on 23 degrees of freedom
+Multiple R-squared:  0.8687,	Adjusted R-squared:  0.823 
+F-statistic: 19.02 on 8 and 23 DF,  p-value: 2.008e-08
+
+> fit <- update ( fit, . ~ . -carb)
+> summary(fit)
+
+Call:
+lm(formula = mpg ~ disp + hp + drat + wt + qsec + am + gear, 
+    data = mtcars)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.1200 -1.7753 -0.1446  1.0903  4.7172 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)   
+(Intercept)  9.19763   11.54220   0.797  0.43334   
+disp         0.01552    0.01214   1.278  0.21342   
+hp          -0.02471    0.01596  -1.548  0.13476   
+drat         0.81023    1.45007   0.559  0.58151   
+wt          -4.13065    1.23593  -3.342  0.00272 **
+qsec         1.00979    0.48883   2.066  0.04981 * 
+am           2.58980    1.83528   1.411  0.17104   
+gear         0.60644    1.20596   0.503  0.61964   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 2.488 on 24 degrees of freedom
+Multiple R-squared:  0.8681,	Adjusted R-squared:  0.8296 
+F-statistic: 22.56 on 7 and 24 DF,  p-value: 4.218e-09
+
+> fit <- update ( fit, . ~ . -gear)
+> summary(fit)
+
+Call:
+lm(formula = mpg ~ disp + hp + drat + wt + qsec + am, data = mtcars)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.2669 -1.6148 -0.2585  1.1220  4.5564 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)   
+(Intercept) 10.71062   10.97539   0.976  0.33848   
+disp         0.01310    0.01098   1.193  0.24405   
+hp          -0.02180    0.01465  -1.488  0.14938   
+drat         1.02065    1.36748   0.746  0.46240   
+wt          -4.04454    1.20558  -3.355  0.00254 **
+qsec         0.99073    0.48002   2.064  0.04955 * 
+am           2.98469    1.63382   1.827  0.07969 . 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 2.45 on 25 degrees of freedom
+Multiple R-squared:  0.8667,	Adjusted R-squared:  0.8347 
+F-statistic: 27.09 on 6 and 25 DF,  p-value: 8.637e-10
+
+> fit <- update ( fit, . ~ . -drat)
+> summary(fit)
+
+Call:
+lm(formula = mpg ~ disp + hp + wt + qsec + am, data = mtcars)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.5399 -1.7398 -0.3196  1.1676  4.5534 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)   
+(Intercept) 14.36190    9.74079   1.474  0.15238   
+disp         0.01124    0.01060   1.060  0.29897   
+hp          -0.02117    0.01450  -1.460  0.15639   
+wt          -4.08433    1.19410  -3.420  0.00208 **
+qsec         1.00690    0.47543   2.118  0.04391 * 
+am           3.47045    1.48578   2.336  0.02749 * 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 2.429 on 26 degrees of freedom
+Multiple R-squared:  0.8637,	Adjusted R-squared:  0.8375 
+F-statistic: 32.96 on 5 and 26 DF,  p-value: 1.844e-10
+
+> fit <- update ( fit, . ~ . -disp)
+> summary(fit)
+
+Call:
+lm(formula = mpg ~ hp + wt + qsec + am, data = mtcars)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.4975 -1.5902 -0.1122  1.1795  4.5404 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)   
+(Intercept) 17.44019    9.31887   1.871  0.07215 . 
+hp          -0.01765    0.01415  -1.247  0.22309   
+wt          -3.23810    0.88990  -3.639  0.00114 **
+qsec         0.81060    0.43887   1.847  0.07573 . 
+am           2.92550    1.39715   2.094  0.04579 * 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 2.435 on 27 degrees of freedom
+Multiple R-squared:  0.8579,	Adjusted R-squared:  0.8368 
+F-statistic: 40.74 on 4 and 27 DF,  p-value: 4.589e-11
+
+> fit <- update ( fit, . ~ . -hp)
+> summary(fit)
+
+Call:
+lm(formula = mpg ~ wt + qsec + am, data = mtcars)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.4811 -1.5555 -0.7257  1.4110  4.6610 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   9.6178     6.9596   1.382 0.177915    
+wt           -3.9165     0.7112  -5.507 6.95e-06 ***
+qsec          1.2259     0.2887   4.247 0.000216 ***
+am            2.9358     1.4109   2.081 0.046716 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 2.459 on 28 degrees of freedom
+Multiple R-squared:  0.8497,	Adjusted R-squared:  0.8336 
+F-statistic: 52.75 on 3 and 28 DF,  p-value: 1.21e-11
+
+> plot (fit)
+Hit <Return> to see next plot: 
+Hit <Return> to see next plot: 
+Hit <Return> to see next plot: 
+Hit <Return> to see next plot: 
+> 
+> 
+> resid <-  resid(fit)
+> plot ( resid)
+> r <-  resid(fit)
+> ?mtcars
+> plot(fit)
+Hit <Return> to see next plot: 
+Hit <Return> to see next plot: 
+Hit <Return> to see next plot: 
+Hit <Return> to see next plot: 
+> 
+> 
+> 
+> cor( mtcars$mpg, mtcars$wt, mtcars$qsec, mtcars$am)
+Error in cor(mtcars$mpg, mtcars$wt, mtcars$qsec, mtcars$am) : 
+  invalid 'use' argument
+In addition: Warning message:
+In if (is.na(na.method)) stop("invalid 'use' argument") :
+  the condition has length > 1 and only the first element will be used
+> cor( data.frame(mtcars$mpg, mtcars$wt, mtcars$qsec, mtcars$am))
+            mtcars.mpg  mtcars.wt mtcars.qsec  mtcars.am
+mtcars.mpg   1.0000000 -0.8676594   0.4186840  0.5998324
+mtcars.wt   -0.8676594  1.0000000  -0.1747159 -0.6924953
+mtcars.qsec  0.4186840 -0.1747159   1.0000000 -0.2298609
+mtcars.am    0.5998324 -0.6924953  -0.2298609  1.0000000
+> rcorr( data.frame(mtcars$mpg, mtcars$wt, mtcars$qsec, mtcars$am))
+Error: could not find function "rcorr"
+> library(Hmisc)
+Loading required package: lattice
+Loading required package: survival
+Loading required package: Formula
+Loading required package: ggplot2
+
+Attaching package: ‘Hmisc’
+
+The following objects are masked from ‘package:dplyr’:
+
+    combine, src, summarize
+
+The following objects are masked from ‘package:base’:
+
+    format.pval, round.POSIXt, trunc.POSIXt, units
+
+> rcorr( data.frame(mtcars$mpg, mtcars$wt, mtcars$qsec, mtcars$am))
+Error in storage.mode(x) <- "double" : 
+  (list) object cannot be coerced to type 'double'
+> rcorr( x = data.frame(mtcars$mpg, mtcars$wt, mtcars$qsec, mtcars$am))
+Error in storage.mode(x) <- "double" : 
+  (list) object cannot be coerced to type 'double'
+> rcorr( x = matrix(mtcars$mpg, mtcars$wt, mtcars$qsec, mtcars$am))
+Error in rcorr(x = matrix(mtcars$mpg, mtcars$wt, mtcars$qsec, mtcars$am)) : 
+  must have >4 observations
+> rcorr( x = cbind(mtcars$mpg, mtcars$wt, mtcars$qsec, mtcars$am))
+      [,1]  [,2]  [,3]  [,4]
+[1,]  1.00 -0.87  0.42  0.60
+[2,] -0.87  1.00 -0.17 -0.69
+[3,]  0.42 -0.17  1.00 -0.23
+[4,]  0.60 -0.69 -0.23  1.00
+
+n= 32 
+
+
+P
+     [,1]   [,2]   [,3]   [,4]  
+[1,]        0.0000 0.0171 0.0003
+[2,] 0.0000        0.3389 0.0000
+[3,] 0.0171 0.3389        0.2057
+[4,] 0.0003 0.0000 0.2057       
+> rcorr( x = cbind(mtcars$mpg, mtcars$wt, mtcars$qsec, mtcars$am))$P
+             [,1]         [,2]       [,3]         [,4]
+[1,]           NA 1.293956e-10 0.01708199 2.850209e-04
+[2,] 1.293956e-10           NA 0.33886821 1.125438e-05
+[3,] 1.708199e-02 3.388682e-01         NA 2.056622e-01
+[4,] 2.850209e-04 1.125438e-05 0.20566222           NA
+
